@@ -12,12 +12,25 @@
     --bg-color: rgb(20,20,20);
     --text-color: #fff;
     --card-bg: rgb(40,40,40);
+    --shadow: 0 4px 6px rgba(0,0,0,0.3);
+    --hover-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    --placeholder: #6c757d;
+    --completed-color: #adb5bd;
+    --delete-color: #e63946;
+    --edit-color: #fb8500;
+}
+.light-mode {
+    --primary-color: rgb(255, 71, 71);
+    --secondary-color:rgb(194, 53, 53);
+    --bg-color: rgb(255, 255, 255);
+    --text-color: #000;
+    --card-bg: rgb(218, 218, 218);
     --shadow: 0 4px 6px rgba(0,0,0,0.1);
     --hover-shadow: 0 10px 15px rgba(0,0,0,0.1);
     --placeholder: #6c757d;
     --completed-color: #adb5bd;
     --delete-color: #e63946;
-    --edit-color: #fb8500f;
+    --edit-color: #fb8500;
 }
 body {
     background-color: var(--bg-color);
@@ -163,6 +176,15 @@ body {
 }
 .btn:hover{
     background-color: rgba(0,0,0,0.05);
+}
+.mode-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+.light-mode .btn:hover {
+    background-color: rgba(255,255,255,0.05);
 }
 .edit-btn{
     color: var(--edit-color);

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    const modeToggle = document.getElementById("modeToggle");
     const todoInput = document.getElementById("todoInput");
     const addButton = document.getElementById("addButton");
     const todoList = document.getElementById("toDoList");
@@ -9,12 +10,30 @@ document.addEventListener("DOMContentLoaded", function () {
     let todos = JSON.parse(localStorage.getItem("todos")) || [];
     let editingId = null;
 
+    modeToggle.addEventListener("click",toggleLightMode);
+
     addButton.addEventListener("click", addTodo);
     todoInput.addEventListener('keypress', e => {
         if (e.key === "Enter") addTodo()
     });
     searchInput.addEventListener("input",filterTodos);
+    
     renderTodos();
+    loadLightModePreference();
+
+    function toggleLightMode() {
+        const isLightMode = document.body.classList.toggle("light-mode");
+        localStorage.setItem("lightMode",isLightMode);
+        modeToggle.textContent= isLightMode? "🌙":"🌞";
+    }
+
+    function loadLightModePreference() {
+        const isLightMode = localStorage.getItem("lightMode") === true;
+        if( isLightMode) {
+            document.body.classList.add("light-mode")
+            modeToggle.text ="🌙"
+        }
+    }
 
     function addTodo() {
         const todoText = todoInput.value.trim();
