@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     todoInput.addEventListener('keypress', e => {
         if (e.key === "Enter") addTodo()
     });
-
+    searchInput.addEventListener("input",filterTodos);
     renderTodos();
 
     function addTodo() {
@@ -41,12 +41,24 @@ document.addEventListener("DOMContentLoaded", function () {
         todoInput.value = "";
         todoInput.focus();
     }
+    function filterTodos() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredTodos = todos.filter(todo =>
+            todo.text.toLowerCase().includes(searchTerm)
+        );
+        renderTodoList(filteredTodos);
+    }
 
     function saveTodos() {
         localStorage.setItem("todos", JSON.stringify(todos))
     }
 
     function renderTodos() {
+        if(searchInput.value.trim() !== "") {
+            filterTodos()
+        } else {
+            renderTodoList(todos);
+        }
         renderTodoList(todos);
     }
 

@@ -143,6 +143,33 @@ body {
     top: 50%;
     transform: translate(-50%,-50%);
 }
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    word-break: break-word;
+}
+.actions{
+    display: flex;
+    gap: 10px;
+}
+.btn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+.btn:hover{
+    background-color: rgba(0,0,0,0.05);
+}
+.edit-btn{
+    color: var(--edit-color);
+}
+.delete-btn {
+    color: var(--delete-color);
+}
 .empty-state{
     text-align: center;
     padding: 40px 0;
