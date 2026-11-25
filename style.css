@@ -15,6 +15,9 @@
     --shadow: 0 4px 6px rgba(0,0,0,0.1);
     --hover-shadow: 0 10px 15px rgba(0,0,0,0.1);
     --placeholder: #6c757d;
+    --completed-color: #adb5bd;
+    --delete-color: #e63946;
+    --edit-color: #fb8500f;
 }
 body {
     background-color: var(--bg-color);
@@ -69,6 +72,76 @@ body {
 }
 .add-button:hover{
     background-color: var(--secondary-color);
+}
+.search-container{
+    margin-bottom: 20px;
+    position: relative;
+}
+.search-input{
+    width: 100%;
+    padding: 12px;
+    padding-left: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+    font-size: 16px;
+    outline: none;
+}
+.search-input::placeholder{
+    color: var(--placeholder);
+}
+.search-icon{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--placeholder);
+}
+
+.todo-list{
+    list-style: none;
+}
+.todo-item{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.todo-item:hover {
+    transform: translate(-2px);
+    box-shadow: var(--hover-shadow);
+}
+.todo-item.completed .todo-text{
+    text-decoration: line-through;
+    color: var(--completed-color);
+}
+.checkbox {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    transition: background-color 0.3s;
+}
+.checkbox:checked{
+    background-color: var(--primary-color);
+}
+.checkbox:checked::after {
+    content: "✔";
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 .empty-state{
     text-align: center;
